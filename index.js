@@ -14,7 +14,7 @@ let botonReiniciar = document.getElementById("botonReiniciar")
 
 let sectionSeleccionarPersonaje = document.getElementById("seleccionarPersonaje")
 let inputGandalf = document.getElementById('gandalf')
-let inputFrodo=document.getElementById('frodo')
+let inputFrodo = document.getElementById('frodo')
 let inputSam=document.getElementById('sam')
 let inputMerry=document.getElementById('merry')
 let inputPippin=document.getElementById('pippin')
