@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Lord Of the Rings</title>
+    </head>
+    <body>
+
+
+        <section id="seleccionarPersonaje">
+            <h1 class = "titulo">Lord of the ringsssssssssss</h1>
+            <h2 class="subtitulo">Elige tu personaje</h2>
+          
+
+             <div class="tarjetas">
+                    <input type="radio" name="personaje" id="gandalf" />
+                        <label class="tarjetaPersonaje" for="gandalf">
+                            <p>Gandalf</p>
+                            <img src="./assets/gandalf.png" alt="gandalf">
+                        </label>
+            
+                        <input type="radio" name="personaje" id="frodo" />
+                        <label class="tarjetaPersonaje" for="frodo">
+                            <p>Frodo</p>
+                            <img src="./assets/frodo.png" alt="frodo">
+                        </label>
+
+                    <input type="radio" name="personaje" id="sam" />
+                    <label class="tarjetaPersonaje" for="sam">
+                        <p>Sam</p>
+                        <img src="./assets/sam.png" alt="Sam">
+                    </label>
+
+                    <input type="radio" name="personaje" id="merry" />
+                    <label  class="tarjetaPersonaje" for="merry">
+                        <p>Merry</p>
+                        <img src="./assets/merry.png" alt="merry">
+                    </label>
+
+                    <input type="radio" name="personaje" id="pippin" />
+                    <label class="tarjetaPersonaje" for="pippin">
+                        <p>Pippin</p>
+                        <img src="./assets/pippin.png" alt="pippin">
+                    </label>
+                    
+                    <input type="radio" name="personaje" id="gimli" />
+                    <label class="tarjetaPersonaje" for="gimli">
+                        <p>Gimli</p>
+                        <img src="./assets/gimli.png" alt="Gimli">
+                    </label>
+
+                    <input type="radio" name="personaje" id="legolas" />
+                    <label class="tarjetaPersonaje" for="legolas">
+                        <p>Legolas</p>
+                        <img src="./assets/legolas.png" alt="legolas">
+                    </label>
+
+                    <input type="radio" name="personaje" id="boromir" />  
+                    <label class="tarjetaPersonaje" for="boromir">
+                        <p>Boromir</p>
+                        <img src="./assets/boromir.png" alt="boromir">   
+                    </label>
+
+                    <input type="radio" name="personaje" id="aragorn" />  
+                    <label class="tarjetaPersonaje" for="aragorn">
+                        <p>Aragorn</p>
+                        <img src="./assets/aragorn.png" alt="aragorn">
+                    </label>
+       
+             </div>   
+            
+            <button id="botonPersonaje">Seleccionar</button>
+
+            </section>
+            <section id="verMapa">
+                <h1 class = "titulo">Lord of the rings</h1>
+                <h3 class = "titulo">Recorre el mapa con tu personaje</h3>
+                <canvas id="mapa"></canvas>   
+                <div class="divBotones">
+                <button class="botonMover" id="botonArriba">Arriba</button> 
+                </div>
+
+                <div class="divBotones">
+                <button class="botonMover" id="botonIzquierda">Izquierda</button> 
+                
+                <button class="botonMover" id="botonAbajo">Abajo</button> 
+                <button class="botonMover" id="botonDerecha">Derecha</button> 
+                </div>
+            </section>
+
+            <section id="seleccionarAtaque">
+            <h1 class = "titulo">Lord of the rings</h1>
+        <div class="gridCombate">
+
+            <div class="divJugador">
+                <p>
+                    <span id="personajeJugador"></span>
+                </p> 
+                <div id="imagenPersonajeJugador">
+                </div>
+                <div class="divVida"></div>
+                <p>
+                <span id="vidaJugador">100</span>/100
+                </p>
+                
+            </div>
+            <div class="divNpc">
+                <p>
+                    <span id="personajeEnemigo"></span>
+                </p> 
+                <div id="imagenPersonajeEnemigo">
+                </div>
+                <div class="divVidaEnemigo"></div>
+                <p>
+                <span id="vidaEnemigo">100</span>/100
+                </p>               
+            </div>
+            
+            <div class="cajaBotones">   
+            <div class="cajitaBoton"><button class = "botonAtaque" id="botonFuego">Fuego 🔥</button></div>
+            <div class="cajitaBoton"><button class = "botonAtaque" id="botonAgua">Agua 💧</button></div>
+            <div class="cajitaBoton"><button class = "botonAtaque" id="botonTierra">Tierra 🌱</button></div>
+            <div class="cajitaBoton"><button class = "botonAtaque" id="botonRayo">Rayo ⚡</button></div>
+            </div>
+            <section id="resultado">
+                <div id="divResultado" class="divResultado">
+                    <section id="mensajes">
+                        <div id="divMensajes"></div>
+                    </section>
+                </div>
+                <section id="reiniciar">
+                    <div class="divReiniciar">
+                <button id="botonReiniciar">Reiniciar</button>  
+                    </div>        
+            </section>
+        
+            
+        </div> 
+            
+            </section>
+        </section>
+        <script src="./index.js"></script>
+            </body>
+            </html>
+        
+        
