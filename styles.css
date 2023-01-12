@@ -12,7 +12,7 @@ body{
     font-family: var(--nombreFuente);
     background-color: grey;
     color: white;
-    background-image: url(/SeñorDeLosAnillos/assets/imagenfondo.png);
+    background-image: url(./assets/imagenfondo.png);
     background-size: cover;
     text-align: center;
     align-items: center;
@@ -293,7 +293,7 @@ h1, h3{
 
 
 #mapa{
-    background-image: url(/SeñorDeLosAnillos/assets/mapa.png);
+    background-image: url(./assets/mapa.png);
     background-color: #000000;
     height: 600;
     width: 800;
