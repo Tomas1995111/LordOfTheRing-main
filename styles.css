@@ -10,6 +10,7 @@
 
 body{
     font-family: var(--nombreFuente);
+    margin: 0px;;
     background-color: grey;
     color: white;
     background-image: url(./assets/imagenfondo.png);
@@ -17,6 +18,7 @@ body{
     text-align: center;
     align-items: center;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 #seleccionarPersonaje {
@@ -45,10 +47,7 @@ body{
     /* background-image: url(/assets/montanasOscuras.jpg);
     background-size: cover; */
     background-color: #1e1e1e;
-
     
-
-
 }
 
 .tarjetaPersonaje {
@@ -304,7 +303,17 @@ h1, h3{
 
 @media (max-width: 600px) {
 
-    .tarjetaPersonaje {
+body{
+    font-family: var(--nombreFuente);
+    margin: 0px;;
+}
+
+#mapa{
+        width: 80%;
+        height: 80%;
+        overflow: hidden;
+    }
+.tarjetaPersonaje {
         width: 80px;
         height: 80px;
         border-radius: 10px;
@@ -312,6 +321,12 @@ h1, h3{
         border: 3px solid white;
         flex-direction: column;
     }
+
+	.divBotones{
+        display: flex;
+        justify-content: center;
+        width: 350px;
+	}
 
     label > p {
         display: none;
