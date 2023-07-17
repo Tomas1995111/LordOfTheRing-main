@@ -1,3 +1,12 @@
+<?php
+require_once("../bd.php");
+
+$sentencia = $conexion->prepare("SELECT * FROM `personajes`");
+$sentencia->execute();
+$lista_personajes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <h1>Personajes</h1>
@@ -22,27 +31,28 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($lista_personajes as $registro) { ?> 
                     <tr class="">
-                        <td scope="row">1</td>
-                        <td>Gandalf</td>
-                        <td>/imagen</td>
-                        <td>100</td>
-                        <td>Fuego</td>
-                        <td>Fuego</td>
-                        <td>Fuego</td>
-                        <td>Fuego</td>
+                        <td scope="row"><?php echo $registro['id']; ?> </td>
+                        <td><?php echo $registro['nombre']; ?></td>
+                        <td><?php echo $registro['imagen']; ?></td>
+                        <td><?php echo $registro['vida']; ?></td>
+                        <td><?php echo $registro['ataque1']; ?></td>
+                        <td><?php echo $registro['ataque2']; ?></td>
+                        <td><?php echo $registro['ataque3']; ?></td>
+                        <td><?php echo $registro['ataque4']; ?></td>
                         <td>
                             <a name="" id="" class="btn btn-info" href="#" role="button">Editar</a>
                             <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a>
                         </td>
-
                     </tr>
+                    <?php } ?>    
                 </tbody>
             </table>
         </div>
         
     </div>
-
+    <a class="btn btn-danger btn-lg" href="../index.html">Cancelar</a>
     <div class="card-footer">
     </div>
     
