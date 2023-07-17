@@ -6,6 +6,7 @@ let alto = 40
 let sectionSeleccionarAtaque = document.getElementById("seleccionarAtaque")
 let sectionReiniciar = document.getElementById("reiniciar")
 let botonPersonajeJugador = document.getElementById("botonPersonaje")
+let botonEditar = document.getElementById("botonEditar")
 let botonFuego = document.getElementById("botonFuego")
 let botonAgua = document.getElementById("botonAgua")
 let botonTierra = document.getElementById("botonTierra")
@@ -39,6 +40,7 @@ function iniciarJuego(){
     sectionReiniciar.style.display = "none"
     sectionMapa.style.display = "none"
     botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador)
+    botonEditar.addEventListener("click", mostrarEditar)
     botonFuego.addEventListener("click", ataqueFuego)
     botonAgua.addEventListener("click", ataqueAgua)
     botonTierra.addEventListener("click", ataqueTierra)
@@ -49,6 +51,10 @@ function iniciarJuego(){
     botonArriba.addEventListener("click", moverArriba)
     botonAbajo.addEventListener("click", moverAbajo)
     
+}
+
+function mostrarEditar (){
+        window.location.href = './personajes'
 }
 
 function seleccionarPersonajeJugador(){
