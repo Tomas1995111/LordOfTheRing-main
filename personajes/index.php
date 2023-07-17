@@ -57,7 +57,7 @@ $lista_personajes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $registro['ataque3']; ?></td>
                         <td><?php echo $registro['ataque4']; ?></td>
                         <td>
-                            <a name="" id="" class="btn btn-info" href="#" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-info" href="editar.php?txtID=<?php echo $registro['id']; ?>" role="button">Editar</a>
                             <a name="" id="" class="btn btn-danger" href="index.php?txtID=<?php echo $registro['id']; ?>" role="button">Eliminar</a>
                         </td>
                     </tr>
