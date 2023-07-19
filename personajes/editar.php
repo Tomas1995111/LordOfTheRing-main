@@ -8,14 +8,12 @@
     //Recolectar los datos del metodo GET
     $txtID = (isset($_GET["txtID"]) ? $_GET["txtID"] : "");
     //Preparar edición de los datos
-
-
 $sentencia = $conexion->prepare("SELECT * FROM `personajes` WHERE id=:id");
 $sentencia->bindValue(":id",$txtID);
 $sentencia->execute();
 $registro = $sentencia->fetch(PDO::FETCH_LAZY);
 $nombrePersonaje = $registro['nombre'];
-$imagenPersonaje = $registro['imagen'];
+$imagenPersonaje = isset($FILES["imagen"]["name"]) ? $FILES["imagen"] : "";
 $vidaPersonaje = $registro['vida'];
 $ataque1Personaje = $registro['ataque1'];
 $ataque2Personaje = $registro['ataque2'];
@@ -50,7 +48,12 @@ if($_POST){
    
    $sentencia->bindValue(":id", $txtID);
    $sentencia->bindValue(":nombre", $nombrePersonaje);
-   $sentencia->bindValue(":imagen", $imagenPersonaje);
+  
+   $sentencia->bindValue(":imagen", $nombrePersonaje);
+$tmp_imagen=$_FILES["imagen"]["tmp_name"];
+if($tmp_imagen!=''){
+  move_uploaded_file($tmp_imagen, "../assets/" . $nombrePersonaje . ".png");
+}
    $sentencia->bindValue(":vida", $vidaPersonaje);
    $sentencia->bindValue(":ataque1", $ataque1Personaje);
    $sentencia->bindValue(":ataque2", $ataque2Personaje);
@@ -81,8 +84,9 @@ if($_POST){
           <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="" value="<?php echo $nombrePersonaje;?>" >
 
           <br>
-          <label for="imagen" class="form-label">Imagen</label>
-          <input type="file" class="form-control" name="imagen" id="imagen" aria-describedby="helpId" placeholder="" value="<?php echo $imagenPersonaje;?>">
+          <label for="imagen" class="form-label">Imagen:</label>
+          <?php echo $nombrePersonaje . '.png'; ?>
+          <input type="file" class="form-control" name="imagen" id="imagen" aria-describedby="helpId" placeholder="" value="">
 
           <br>
           <label for="vida" class="form-label">Vida</label>
@@ -105,7 +109,7 @@ if($_POST){
           <input type="text" class="form-control" name="ataque4" id="ataque4" aria-describedby="helpId" placeholder="" value="<?php echo $ataque4Personaje;?>"> 
 
         </div>
-        <button type="submit" name="" id="" class="btn btn-primary" href="#" role="button">Agregar registro</button>
+        <button type="submit" name="" id="" class="btn btn-primary" href="#" role="button">Editar registro</button>
         <a name="" id="" class="btn btn-danger" href="./index.php" role="button">Cancelar</a>
         </form>
 </div>

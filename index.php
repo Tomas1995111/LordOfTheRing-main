@@ -54,7 +54,7 @@ if ($result->num_rows > 0) {
 <label class="tarjetaPersonaje" for="'.$nombre.'">
     <p>'.$nombre.'</p>
     <img height=74px src="./assets/'.$nombre.'.png" alt="'.$nombre.'">
-</label>';
+    </label>';
         echo $html_code;
     }
 } else {

@@ -8,9 +8,7 @@ if($_POST){
 
   //Recolectar datos del metodo post
   $nombrePersonaje = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
-
   $imagenPersonaje = isset($FILES["imagen"]["name"]) ? $FILES["imagen"] : "";
-
   $vidaPersonaje = isset($_POST["vida"]) ? $_POST["vida"] : "";
   $ataque1Personaje = isset($_POST["ataque1"]) ? $_POST["ataque1"] : "";
   $ataque2Personaje = isset($_POST["ataque2"]) ? $_POST["ataque2"] : "";

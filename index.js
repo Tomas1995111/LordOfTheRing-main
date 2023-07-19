@@ -14,6 +14,11 @@ let botonRayo = document.getElementById("botonRayo")
 let botonReiniciar = document.getElementById("botonReiniciar")
 
 let sectionSeleccionarPersonaje = document.getElementById("seleccionarPersonaje")
+
+
+
+
+
 let inputGandalf = document.getElementById('gandalf')
 let inputFrodo = document.getElementById('frodo')
 let inputSam=document.getElementById('sam')
@@ -61,48 +66,71 @@ function seleccionarPersonajeJugador(){
 sectionSeleccionarPersonaje.style.display = "none"
 sectionMapa.style.display = "flex"
 
-window.addEventListener("keydown", sePresionoUnaTecla)
 
-if(inputGandalf.checked){
-    personajeJugador = "gandalf"
+// Obtener el elemento marcado (checked)
+let personajeSeleccionado = 0; // Valor predeterminado si no se selecciona ningún personaje
+
+const elementoSeleccionado = document.querySelector('input[name="personaje"]:checked');
+
+if (elementoSeleccionado) {
+    personajeSeleccionado = elementoSeleccionado.id;
+  personajeJugador = personajeSeleccionado
     spanPersonajeJugador.innerHTML = personajeJugador
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputFrodo.checked){
-    personajeJugador = 'frodo'
-    spanPersonajeJugador.innerHTML = 'Frodo'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputSam.checked){
-    personajeJugador = 'sam'
-    spanPersonajeJugador.innerHTML = 'Sam'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputMerry.checked){
-    personajeJugador = 'merry'
-    spanPersonajeJugador.innerHTML = 'Merry'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputPippin.checked){
-    personajeJugador = 'pippin'
-    spanPersonajeJugador.innerHTML = 'Pippin'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputGimli.checked){
-    personajeJugador = 'gimli'
-    spanPersonajeJugador.innerHTML = 'Gimli'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputLegolas.checked){
-    personajeJugador = 'legolas'
-    spanPersonajeJugador.innerHTML = 'Legolas'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputBoromir.checked){
-    personajeJugador = 'boromir'
-    spanPersonajeJugador.innerHTML = 'Boromir'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else if(inputAragorn.checked){
-    personajeJugador = 'aragorn'
-    spanPersonajeJugador.innerHTML = 'Aragorn'
-    document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
-}else{
+    document.getElementById("imagenPersonajeJugador").innerHTML =`<img width="80" height="90" src="./assets/${personajeJugador}.png" alt="">`
+
+
+} else {
     alert('Selecciona un personaje')
     location.reload()
 }
+
+
+window.addEventListener("keydown", sePresionoUnaTecla)
+
+
+
+
+// if(inputGandalf.checked){
+//     personajeJugador = "gandalf"
+//     spanPersonajeJugador.innerHTML = personajeJugador
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputFrodo.checked){
+//     personajeJugador = 'frodo'
+//     spanPersonajeJugador.innerHTML = 'Frodo'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputSam.checked){
+//     personajeJugador = 'sam'
+//     spanPersonajeJugador.innerHTML = 'Sam'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputMerry.checked){
+//     personajeJugador = 'merry'
+//     spanPersonajeJugador.innerHTML = 'Merry'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputPippin.checked){
+//     personajeJugador = 'pippin'
+//     spanPersonajeJugador.innerHTML = 'Pippin'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputGimli.checked){
+//     personajeJugador = 'gimli'
+//     spanPersonajeJugador.innerHTML = 'Gimli'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputLegolas.checked){
+//     personajeJugador = 'legolas'
+//     spanPersonajeJugador.innerHTML = 'Legolas'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputBoromir.checked){
+//     personajeJugador = 'boromir'
+//     spanPersonajeJugador.innerHTML = 'Boromir'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else if(inputAragorn.checked){
+//     personajeJugador = 'aragorn'
+//     spanPersonajeJugador.innerHTML = 'Aragorn'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img src="./assets/${personajeJugador}.png" alt="">`
+// }else{
+//     personajeJugador = 'perro'
+//     spanPersonajeJugador.innerHTML = 'perro'
+//     document.getElementById("imagenPersonajeJugador").innerHTML =`<img width="80" height="90" src="./assets/${personajeJugador}.png" alt="">`
+// }
 
 seleccionarPersonajeEnemigo()
 
@@ -138,7 +166,7 @@ function seleccionarPersonajeEnemigo() {
     } else if (personajeAleatorio == 8){
         spanPersonajeEnemigo.innerHTML = "Boromir"
         document.getElementById("imagenPersonajeEnemigo").innerHTML =`<img src="./assets/boromir.png" alt="">`
-    } else {
+    }  else {
         spanPersonajeEnemigo.innerHTML = "Aragorn"
         document.getElementById("imagenPersonajeEnemigo").innerHTML =`<img src="./assets/aragorn.png" alt="">`
     }
