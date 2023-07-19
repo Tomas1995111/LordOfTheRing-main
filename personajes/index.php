@@ -23,6 +23,8 @@ $lista_personajes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="../styles.css">
+
 
 <h1>Personajes</h1>
 <div class="card">
@@ -50,7 +52,9 @@ $lista_personajes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                     <tr class="">
                         <td scope="row"><?php echo $registro['id']; ?> </td>
                         <td><?php echo $registro['nombre']; ?></td>
-                        <td><?php echo $registro['imagen']; ?></td>
+                        <td>
+                            <img width="60" class="img" src="../assets/<?php echo $registro['nombre'] . ".png"; ?>" />
+                        </td>
                         <td><?php echo $registro['vida']; ?></td>
                         <td><?php echo $registro['ataque1']; ?></td>
                         <td><?php echo $registro['ataque2']; ?></td>
@@ -67,7 +71,7 @@ $lista_personajes = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         </div>
         
     </div>
-    <a class="btn btn-danger btn-lg" href="../index.html">Cancelar</a>
+    <a class="btn btn-danger btn-lg" href="../index.php">Cancelar</a>
     <div class="card-footer">
     </div>
     

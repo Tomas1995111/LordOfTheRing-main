@@ -1,5 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+<link rel="stylesheet" href="../styles.css">
 
 <?php
   require_once("../bd.php");
@@ -9,7 +9,6 @@
     $txtID = (isset($_GET["txtID"]) ? $_GET["txtID"] : "");
     //Preparar edición de los datos
 
- 
 
 $sentencia = $conexion->prepare("SELECT * FROM `personajes` WHERE id=:id");
 $sentencia->bindValue(":id",$txtID);
@@ -23,19 +22,6 @@ $ataque2Personaje = $registro['ataque2'];
 $ataque3Personaje = $registro['ataque3'];
 $ataque4Personaje = $registro['ataque4'];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if($_POST){  
@@ -75,25 +61,7 @@ if($_POST){
    header("Location: index.php");
   }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
-
 
 <main class="container">
 <div class="card-header">

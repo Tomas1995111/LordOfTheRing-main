@@ -1,3 +1,26 @@
+<?php
+// Establecer la conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "lordofthering";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Consulta para obtener los nombres de la base de datos
+$sql = "SELECT nombre FROM personajes";
+$result = $conn->query($sql);
+
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>Lord Of the Rings</title>
     </head>
@@ -17,63 +41,32 @@
           
 
              <div class="tarjetas">
-                    <input type="radio" name="personaje" id="gandalf" />
-                        <label class="tarjetaPersonaje" for="gandalf">
-                            <p>Gandalf</p>
-                            <img src="./assets/gandalf.png" alt="gandalf">
-                        </label>
-            
-                        <input type="radio" name="personaje" id="frodo" />
-                        <label class="tarjetaPersonaje" for="frodo">
-                            <p>Frodo</p>
-                            <img src="./assets/frodo.png" alt="frodo">
-                        </label>
 
-                    <input type="radio" name="personaje" id="sam" />
-                    <label class="tarjetaPersonaje" for="sam">
-                        <p>Sam</p>
-                        <img src="./assets/sam.png" alt="Sam">
-                    </label>
 
-                    <input type="radio" name="personaje" id="merry" />
-                    <label  class="tarjetaPersonaje" for="merry">
-                        <p>Merry</p>
-                        <img src="./assets/merry.png" alt="merry">
-                    </label>
+             <?php
+             
+             // Generar el código HTML para cada nombre
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $nombre = $row["nombre"];
+        $html_code = '
+<input type="radio" name="personaje" id="'.$nombre.'" />
+<label class="tarjetaPersonaje" for="'.$nombre.'">
+    <p>'.$nombre.'</p>
+    <img height=74px src="./assets/'.$nombre.'.png" alt="'.$nombre.'">
+</label>';
+        echo $html_code;
+    }
+} else {
+    echo "No se encontraron resultados.";
+}
 
-                    <input type="radio" name="personaje" id="pippin" />
-                    <label class="tarjetaPersonaje" for="pippin">
-                        <p>Pippin</p>
-                        <img src="./assets/pippin.png" alt="pippin">
-                    </label>
-                    
-                    <input type="radio" name="personaje" id="gimli" />
-                    <label class="tarjetaPersonaje" for="gimli">
-                        <p>Gimli</p>
-                        <img src="./assets/gimli.png" alt="Gimli">
-                    </label>
+?>
 
-                    <input type="radio" name="personaje" id="legolas" />
-                    <label class="tarjetaPersonaje" for="legolas">
-                        <p>Legolas</p>
-                        <img src="./assets/legolas.png" alt="legolas">
-                    </label>
-
-                    <input type="radio" name="personaje" id="boromir" />  
-                    <label class="tarjetaPersonaje" for="boromir">
-                        <p>Boromir</p>
-                        <img src="./assets/boromir.png" alt="boromir">   
-                    </label>
-
-                    <input type="radio" name="personaje" id="aragorn" />  
-                    <label class="tarjetaPersonaje" for="aragorn">
-                        <p>Aragorn</p>
-                        <img src="./assets/aragorn.png" alt="aragorn">
-                    </label>
-       
              </div>   
             
             <button id="botonPersonaje">Seleccionar</button>
+            <h2 class="subtitulo">Edita y agrega tu personaje</h2>
             <button id="botonEditar">Editar</button>
 
             </section>

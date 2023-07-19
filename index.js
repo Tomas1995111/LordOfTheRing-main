@@ -111,7 +111,6 @@ dibujarPersonaje()
 
 }
 
-
 function seleccionarPersonajeEnemigo() {
     
     let personajeAleatorio = aleatorio(1, 9)
@@ -360,6 +359,3 @@ function sePresionoUnaTecla(event){
 }
 
 window.addEventListener('load', iniciarJuego)
-
-
-//platzi 65/84

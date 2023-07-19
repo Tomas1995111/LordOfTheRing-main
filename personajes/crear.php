@@ -1,5 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+<link rel="stylesheet" href="../styles.css">
 
 <?php
 
@@ -8,7 +8,9 @@ if($_POST){
 
   //Recolectar datos del metodo post
   $nombrePersonaje = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
-  $imagenPersonaje = isset($_POST["imagen"]) ? $_POST["imagen"] : "";
+
+  $imagenPersonaje = isset($FILES["imagen"]["name"]) ? $FILES["imagen"] : "";
+
   $vidaPersonaje = isset($_POST["vida"]) ? $_POST["vida"] : "";
   $ataque1Personaje = isset($_POST["ataque1"]) ? $_POST["ataque1"] : "";
   $ataque2Personaje = isset($_POST["ataque2"]) ? $_POST["ataque2"] : "";
@@ -20,12 +22,21 @@ if($_POST){
   VALUES (null, :nombre, :imagen, :vida, :ataque1, :ataque2, :ataque3, :ataque4)");
  
  $sentencia->bindValue(":nombre", $nombrePersonaje);
- $sentencia->bindValue(":imagen", $imagenPersonaje);
+ 
+$sentencia->bindValue(":imagen", $nombrePersonaje);
+$tmp_imagen=$_FILES["imagen"]["tmp_name"];
+if($tmp_imagen!=''){
+  move_uploaded_file($tmp_imagen, "../assets/" . $nombrePersonaje . ".png");
+}
+
  $sentencia->bindValue(":vida", $vidaPersonaje);
  $sentencia->bindValue(":ataque1", $ataque1Personaje);
  $sentencia->bindValue(":ataque2", $ataque2Personaje);
  $sentencia->bindValue(":ataque3", $ataque3Personaje);
  $sentencia->bindValue(":ataque4", $ataque4Personaje);
+
+
+
  $sentencia->execute();
 
  header("Location: index.php");
